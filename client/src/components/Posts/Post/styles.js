@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles({
   media: {
     height: 0,
-    paddingTop: '56.25%',
+    paddingTop: '56.25%', // 16:9 aspect ratio
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     backgroundBlendMode: 'darken',
   },
@@ -20,6 +20,15 @@ export default makeStyles({
     borderRadius: '15px',
     height: '100%',
     position: 'relative',
+    boxShadow: '5px 5px 20px rgba(0, 0, 0, 0.1), -5px -5px 20px rgba(255, 255, 255, 0.3)', // Initial shadow for 3D effect
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Smooth transition for hover effects
+    '&:hover': {
+      transform: 'translateY(-10px)', // Lift up the card when hovered
+      boxShadow: '15px 15px 40px rgba(0, 0, 0, 0.2), -15px -15px 40px rgba(255, 255, 255, 0.5)', // Stronger shadow on hover
+    },
+    '&:active': {
+      transform: 'translateY(-2px)', // Slightly reduce lift when clicked
+    },
   },
   overlay: {
     position: 'absolute',
@@ -43,6 +52,7 @@ export default makeStyles({
   },
   title: {
     padding: '0 16px',
+    fontWeight: 'bold',
   },
   cardActions: {
     padding: '0 16px 8px 16px',
